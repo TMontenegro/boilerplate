@@ -1,10 +1,20 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import Main from '.';
 
-export default {
+const meta: Meta<typeof Main> = {
   title: 'Main',
+  tags: ['autodocs'],
   component: Main
-} as Meta;
+};
 
-export const Basic: Story = (args) => <Main {...args} />;
+export default meta;
+
+type Story = StoryObj<typeof Main>;
+
+export const Basic: Story = {
+  args: {
+    title: 'React Avançado',
+    description: 'TypeScript, ReactJS, NextJS e Styled Components'
+  }
+};
