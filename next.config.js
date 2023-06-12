@@ -1,4 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
+/* eslint-disable @typescript-eslint/no-var-requires */
+const runtimeCaching = require('next-pwa/cache');
+const isProd = process.env.NODE_ENV === 'production';
 
-module.exports = nextConfig
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  disable: !isProd,
+  runtimeCaching
+});
+
+module.exports = withPWA({});
